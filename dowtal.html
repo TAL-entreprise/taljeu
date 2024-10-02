@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TALjeu - Code Source</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; max-width: 800px; margin: 0 auto; line-height: 1.6; }
+        h1 { color: #333; }
+        textarea { width: 100%; height: 300px; margin-bottom: 10px; }
+        #copyButton { background-color: #4CAF50; color: white; border: none; padding: 10px 20px; cursor: pointer; }
+        #copyButton:hover { background-color: #45a049; }
+        .instructions { background-color: #f0f0f0; padding: 15px; border-radius: 5px; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Code source de TALjeu</h1>
+    <p>Voici le code source de TALjeu :</p>
+    <textarea id="codeArea" readonly>
+@echo off
+
+title TALjeu - Jeu en Maintenance
+
+:menu
+cls
+echo ============================
+echo TALjeu
+echo ============================
+echo.
+echo 1. Jouer
+echo 2. Boutique
+echo 3. Quitter
+echo.
+set /p choice="Choisissez une option (1, 2 ou 3): "
+
+if %choice%==1 (
+    goto maintenance
+) else if %choice%==2 (
+    goto boutique
+) else if %choice%==3 (
+    goto quitter
+) else (
+    echo Option invalide. Essayez encore.
+    pause
+    goto menu
+)
+
+:maintenance
+cls
+echo ============================
+echo Maintenance en cours
+echo ============================
+echo.
+echo Ce jeu est en maintenance.
+echo Appuyez sur une touche pour revenir au menu.
+pause >nul
+goto menu
+
+:boutique
+cls
+echo ============================
+echo Boutique
+echo ============================
+echo.
+echo Ce service est actuellement en maintenance.
+echo Appuyez sur une touche pour revenir au menu.
+pause >nul
+goto menu
+
+:quitter
+cls
+echo Au revoir !
+ping localhost -n 2 >nul
+cls
+echo Au revoir .
+ping localhost -n 2 >nul
+cls
+echo Au revoir ..
+ping localhost -n 2 >nul
+cls
+echo Au revoir ...
+ping localhost -n 2 >nul
+exit
+    </textarea>
+    <button id="copyButton">Copier le code</button>
+    
+    <div class="instructions">
+        <h2>Comment utiliser ce code :</h2>
+        <ol>
+            <li>Cliquez sur le bouton "Copier le code" ci-dessus.</li>
+            <li>Ouvrez le Bloc-notes sur votre ordinateur (windows).</li>
+            <li>Collez le code copié dans un nouveau document Bloc-notes.</li>
+            <li>Enregistrez le fichier avec l'extension ".bat" (par exemple, "TALjeu.bat").</li>
+            <li>Double-cliquez sur le fichier .bat pour exécuter le jeu.</li>
+        </ol>
+        <p><strong>Note :</strong> Ce jeu est actuellement en maintenance, donc toutes les options mèneront à un message de maintenance.</p>
+    </div>
+<p><strong>SERVICE : 🟠 </strong>
+
+    <script>
+        document.getElementById('copyButton').addEventListener('click', function() {
+            var codeArea = document.getElementById('codeArea');
+            codeArea.select();
+            document.execCommand('copy');
+            alert('Le code a été copié dans le presse-papiers !');
+        });
+    </script>
+<h3>Créé par Timeo</h3>
+</body>
+</html>
